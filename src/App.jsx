@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
-import { NEXT_URL, API_URL } from './config/index'
+// import { NEXT_URL, API_URL } from './config/index'
 // import styles from '../styles/Home.module.css'
 import AuthContext1 from './context/AuthContext1'
 function App() {
@@ -24,7 +24,7 @@ function App() {
       console.log('redirect to landing page')
 		}
 	}, [user])
-
+	const API_URL = 'https://wild-gold-sea-urchin-sock.cyclic.app'
 	const sendOTP = async (e) => {
 		setLoading(true)
 		setError(false)
@@ -32,6 +32,7 @@ function App() {
 		const phone = document.querySelector('input').value
 		console.log(phone)
 		// fetch(`${NEXT_URL}/api/sendotp`, {
+			console.log(API_URL);
 		await fetch(`${API_URL}/api/otp/sendotp`, {
 			method: 'POST',
 			headers: {

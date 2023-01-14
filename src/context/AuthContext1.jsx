@@ -1,7 +1,8 @@
 import React from 'react'
 
-import { NEXT_URL, API_URL } from '../config/index'
+// import { NEXT_URL, API_URL } from '../config/index'
 // create a auth context
+const API_URL = 'https://wild-gold-sea-urchin-sock.cyclic.app'
 
 const AuthContext1 = React.createContext()
 // create a provider
