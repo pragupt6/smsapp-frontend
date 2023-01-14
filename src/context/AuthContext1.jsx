@@ -3,7 +3,7 @@ import React from 'react'
 import { NEXT_URL, API_URL } from '../config/index'
 // create a auth context
 
-const AuthContext = React.createContext()
+const AuthContext1 = React.createContext()
 // create a provider
 export const AuthProvider = ({ children }) => {
 	const [user, setUser] = React.useState(null)
@@ -61,10 +61,10 @@ export const AuthProvider = ({ children }) => {
 	}, [])
 
 	return (
-		<AuthContext.Provider value={{ user, logOut, checkUserLoggedIn }}>
+		<AuthContext1.Provider value={{ user, logOut, checkUserLoggedIn }}>
 			{children}
-		</AuthContext.Provider>
+		</AuthContext1.Provider>
 	)
 }
 
-export default AuthContext
+export default AuthContext1

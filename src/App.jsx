@@ -3,10 +3,10 @@ import reactLogo from './assets/react.svg'
 import './App.css'
 import { NEXT_URL, API_URL } from './config/index'
 // import styles from '../styles/Home.module.css'
-import AuthContext from './context/AuthContext'
+import AuthContext1 from './context/AuthContext1'
 function App() {
   console.log('Logging')
-	const context = useContext(AuthContext)
+	const context = useContext(AuthContext1)
 	const { user, checkUserLoggedIn } = context
   const [count, setCount] = useState(0)
 	const [errors, setError] = useState(null)
