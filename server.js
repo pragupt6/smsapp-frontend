@@ -1,37 +1,26 @@
-// create a web server
 import express from 'express'
 import path from 'path'
 import dotenv from 'dotenv'
 import colors from 'colors'
-
+// const express = require('express')
+// const path = require('path')
 const app = express()
-app.use(express.json())
-dotenv.config()
 
-app.use(express.json())
-app.use(express.urlencoded({ extended: false }))
-
-const __dirname = path.resolve()
-console.log(__dirname)
-
-if (process.env.NODE_ENV === 'production') {
-	app.use(express.static(path.join(__dirname, '/dist')))
-
-	app.get('*', (req, res) =>
-		res.sendFile(path.resolve(__dirname, 'dist', 'index.html'))
-	)
-} else {
-	app.get('*', (req, res) =>
-		res.sendFile(path.resolve(__dirname, 'index.html'))
-	)
-	// app.get('/', (req, res) => {
-	// 	res.send('API is running....')
-	// })
+// #############################################################################
+// This configures static hosting for files in /public that have the extensions
+// listed in the array.
+var options = {
+	dotfiles: 'ignore',
+	etag: false,
+	extensions: ['htm', 'html', 'css', 'js', 'ico', 'jpg', 'jpeg', 'png', 'svg'],
+	index: ['index.html'],
+	maxAge: '1m',
+	redirect: false,
 }
+app.use(express.static('dist', options))
+
 const port = process.env.PORT || 3000
-app.listen(
-	port,
-	console.log(
-		`Server running in ${process.env.NODE_ENV} on port ${port}`.yellow.bold
-	)
-)
+
+app.listen(port, () => {
+	console.log(`React app listening at http://localhost:${port}`)
+})
