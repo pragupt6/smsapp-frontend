@@ -9,6 +9,7 @@ export const AuthProvider = ({ children }) => {
 	const [user, setUser] = React.useState(null)
 	const [loading, setLoading] = React.useState(false)
 	const checkUserLoggedIn = async () => {
+		
 		setLoading(true)
 		try {
 			await fetch(`${API_URL}/api/checkuser`, {
